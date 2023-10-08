@@ -1,0 +1,3 @@
+# Atividade 03 - 23/10
+
+Na atividade 03, o intuito foi ...
