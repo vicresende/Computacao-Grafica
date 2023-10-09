@@ -13,6 +13,18 @@ class ImageSaver:
 
     @staticmethod
     def save_ppm(filename, width, height, pixels):
+        """
+        Salva uma imagem em formato PPM.
+
+        Args:
+            filename (str): O nome do arquivo de saída.
+            width (int): A largura da imagem.
+            height (int): A altura da imagem.
+            pixels (list): Uma lista de tuplas representando os pixels da imagem.
+
+        Returns:
+            None
+        """
         with open(filename, 'w') as file:
             file.write(f'P3\n{width} {height}\n255\n')
 
@@ -21,11 +33,33 @@ class ImageSaver:
 
     @staticmethod
     def save_png(filename, width, height, pixels):
+        """
+        Salva uma imagem em formato PNG.
+
+        Args:
+            filename (str): O nome do arquivo de saída.
+            width (int): A largura da imagem.
+            height (int): A altura da imagem.
+            pixels (list): Uma lista de tuplas representando os pixels da imagem.
+
+        Returns:
+            None
+        """
         img = Image.new('RGB', (width, height))
         img.putdata(pixels)
         img.save(filename, 'PNG')
 
 def generate_gradient(width, height):
+    """
+    Gera uma imagem de gradiente.
+
+    Args:
+        width (int): A largura da imagem.
+        height (int): A altura da imagem.
+
+    Returns:
+        list: Uma lista de tuplas representando os pixels da imagem gerada.
+    """
     pixels = []
     for j in range(height):
         for i in range(width):
@@ -41,6 +75,16 @@ def generate_gradient(width, height):
     return pixels
 
 def generate_circle(width, height):
+    """
+    Gera uma imagem de círculo.
+
+    Args:
+        width (int): A largura da imagem.
+        height (int): A altura da imagem.
+
+    Returns:
+        list: Uma lista de tuplas representando os pixels da imagem gerada.
+    """
     pixels = []
     cx, cy = width // 2, height // 2
     radius = min(cx, cy) * 0.8
@@ -64,8 +108,17 @@ def generate_circle(width, height):
             pixels.append((r, g, b))
     return pixels
 
-
 def generate_square(width, height):
+    """
+    Gera uma imagem de quadrado.
+
+    Args:
+        width (int): A largura da imagem.
+        height (int): A altura da imagem.
+
+    Returns:
+        list: Uma lista de tuplas representando os pixels da imagem gerada.
+    """
     pixels = []
     square_size = min(width, height) * 0.6
 
@@ -85,7 +138,6 @@ def generate_square(width, height):
 
             pixels.append((r, g, b))
     return pixels
-
 
 # Criação das imagens
 width = 256
